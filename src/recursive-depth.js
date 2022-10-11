@@ -20,7 +20,7 @@ const { NotImplementedError } = require('../extensions/index.js');
 }
 
 const depthCalc = new DepthCalculator();
-console.log(depthCalc.calculateDepth([1, 2, 3, 4, [1, 2, [1, 2, [[[]]]]], 5, [1, [[[[[[]]]]]]]]));
+//console.log(depthCalc.calculateDepth([1, 2, 3, 4, [1, 2, [1, 2, [[[]]]]], 5, [1, [[[[[[]]]]]]]]));
 
 module.exports = {
   DepthCalculator

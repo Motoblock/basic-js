@@ -18,11 +18,12 @@ const HALF_LIFE_PERIOD = 5730;
  *
  */
 function dateSample(sampleActivity) {
+
   if(!sampleActivity || +sampleActivity < 0 || +sampleActivity > 8999 || sampleActivity === undefined ) return false;
 
-  if (typeof sampleActivity == 'string' && +sampleActivity !== NaN) {
-    let res = Number(Math.ceil(Math.log(MODERN_ACTIVITY / +sampleActivity) / (0.693 / HALF_LIFE_PERIOD)));
-    return (res > 0 && res !== Infinity && res !== undefined)?res: false ;
+  if (typeof sampleActivity === 'string' && +sampleActivity !== NaN) {
+    let resage = Number(Math.ceil(Math.log(MODERN_ACTIVITY / +sampleActivity) / (0.693 / HALF_LIFE_PERIOD)));
+    return (resage > 0 && resage !== Infinity && resage !== undefined) ? resage : false ;
   }
   return false;
 }
@@ -31,4 +32,4 @@ module.exports = {
   dateSample
 };
 
-dateSample('15.1');
+console.log(dateSample('ACTIVITY OVER 9000'));

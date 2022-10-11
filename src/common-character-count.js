@@ -13,8 +13,14 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 function getCommonCharacterCount(s1, s2 ) {
   let count = 0;
+  const bukv = new Set();
   for(let i = 0; i < s1.length; i++) {
-    if (s2.includes(s1[i]) == false) count++
+    if (s2.includes(s1[i]) !== false) {
+      if(bukv.has(s1[i]) == false) {
+        bukv.add(s1[i]);
+        count += Math.min(s1.split(s1[i]).length - 1,s2.split(s1[i]).length - 1);
+      }
+    }
   }
   return count;
 }
@@ -22,3 +28,5 @@ function getCommonCharacterCount(s1, s2 ) {
 module.exports = {
   getCommonCharacterCount
 };
+
+console.log(getCommonCharacterCount('aabcc','adcaa'));
