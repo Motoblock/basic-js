@@ -29,8 +29,7 @@ function renameFiles(names) {
         myFiles.add(value);
       }
   }
-
-console.log(myFiles);
+  return Array.from(myFiles);
 }
 //console.log(renameFiles(["file", "file", "image", "file(1)", "file"]));
 module.exports = {
