@@ -18,6 +18,21 @@ const { NotImplementedError } = require('../extensions/index.js');
 function renameFiles(names) {
   let myFiles = new Set();
 
+//   for (let value of names) {
+//       if (myFiles.has(value) != false) {
+//           let i = 1;
+//           while (myFiles.has(`${value}(${i})`) != false) {
+//               i += 1;
+//           }
+//           myFiles.add(`${value}(${i})`);
+//       } else {
+//         myFiles.add(value);
+//       }
+//   }
+//   return Array.from(myFiles);
+// }
+// >>>>>>> 01db51f1db1cc5bf7497dd05284d18a574c9dd52
+
   for (const value of names) {
       if (myFiles.has(value) != false) {
           let i = 1

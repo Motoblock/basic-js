@@ -11,17 +11,20 @@ const { NotImplementedError } = require('../extensions/index.js');
  * For s1 = "aabcc" and s2 = "adcaa", the output should be 3
  * Strings have 3 common characters - 2 "a"s and 1 "c".
  */
-function getCommonCharacterCount(/*s1, s2*/ ) {
-  //let mas = [];
-  throw new NotImplementedError('Not implemented');
-  // if(s1.length == 0 || s1.length == 1) return 0;
-  // let count = 0;
-  // for(let i = 0; i < s1.length; i++) {
-  // //  console.log(s2.includes(s1[i]))
-  //   if (s2.includes(s1[i]) === false) {count++; }
-  // }
-  // if(count == 0 && s1.length != s2.length) count = Math.abs(s1.length - s2.length) + 1;
-  // return count;
+
+function getCommonCharacterCount(s1, s2 ) {
+  let count = 0;
+  const bukv = new Set();
+  for(let i = 0; i < s1.length; i++) {
+    if (s2.includes(s1[i]) !== false) {
+      if(bukv.has(s1[i]) == false) {
+        bukv.add(s1[i]);
+        count += Math.min(s1.split(s1[i]).length - 1,s2.split(s1[i]).length - 1);
+      }
+    }
+  }
+  return count;
+
 }
 // console.log(getCommonCharacterCount('a', 'b'));
 // console.log(getCommonCharacterCount('aabcc', 'adcaa'));
@@ -34,3 +37,5 @@ function getCommonCharacterCount(/*s1, s2*/ ) {
 module.exports = {
   getCommonCharacterCount
 };
+
+console.log(getCommonCharacterCount('aabcc','adcaa'));

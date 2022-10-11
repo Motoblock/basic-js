@@ -19,7 +19,7 @@ function getSumOfDigits(n) {
   if(n > 9) return getSumOfDigits(n);
   return n;
 }
-console.log(getSumOfDigits(getSumOfDigits(123)));
+
 module.exports = {
   getSumOfDigits
 };
