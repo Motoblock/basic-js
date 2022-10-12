@@ -52,16 +52,20 @@ class VigenereCipheringMachine {
       if (countstr === key.length) {
           countstr = 0;
         }
-        let tmp = (message.charCodeAt(i) + key.charCodeAt(countstr)) % 26;
-        console.log(tmp);
+        if(messtr[i] != " " || messtr[i] != "!") {
+        console.log('message=',message.charCodeAt(i), 'key=',key.charCodeAt(countstr));
+        let tmp = (message.charCodeAt(i) + key.charCodeAt(countstr)) % 26;        
+        console.log(alphabet[tmp]);
         index.push(alphabet[tmp]);
         countstr++;
-      
+      } else {
+        index.push(messtr[i]);
+      }
   //  i = ++i % key.length
     //return charCodeAt(index);
   }
   if(this.ttype != true) index.reverse();
-  index.join('');
+  return index.join('');
   
     //return message.split("").reverse().join("").toUpperCase();
   
@@ -88,8 +92,8 @@ class VigenereCipheringMachine {
       if (countstr === key.length) {
         countstr = 0;
       }
-  let tmp = (charCodeAt(messtr[i]) + charCodeAt(key[countstr])) % 26;
-   index.push(charCodeAt(tmp));
+      let tmp = (message.charCodeAt(i) + key.charCodeAt(countstr)) % 26;
+   index.push(alphabet[tmp]);
    countstr++;
   //  if (code < 0) {
   //   code = 26 + code;
@@ -98,9 +102,10 @@ class VigenereCipheringMachine {
    //return charCodeAt(index);
  }
  if(this.ttype != true) index.reverse();
- index.join('');
-
+ return index.join('');
+ 
   }
+  
 }
 
 module.exports = {
