@@ -31,23 +31,28 @@ function minesweeper(matrix) {
   //console.log(matrix); 
   
   let newmatrix = [[0,0,0],[0,0,0],[0,0,0]]; //matrix.fill(0);
+  //let newmatrix = [...Array(matrix.length)].map(e => Array(matrix[0].length).fill(0))
+  
   for(let i = 0; i < matrix.length; i++) {
     for(let j = 0; j < matrix[i].length; j++)
     {
-     // newmatrix[i][j] = 0;
-      if (!(i == 1 && j == 1)) {
-      let index = [[i - 1, j - 1], [i - 1, j], [i - 1, j + 1], 
-            [ i, j - 1] , [i , j + 1], [i + 1, j - 1], [i + 1, j], [j + 1, j + 1]];
+     if (matrix[i][j] == true) {
+   //   if (!(i == 1 && j == 1)) {
+      let index = [[i - 1, j - 1], [i - 1, j], [i - 1, j + 1],
+                   [i, j - 1] , [i,j],[i , j + 1], 
+                   [i + 1, j - 1],[i + 1, j], [j + 1, j + 1]];
       for (let [x, y] of index) {
-        
-      if (0 <= x && x < matrix.length &&  0 <= y && y < matrix[i].length) {
-        newmatrix[x][y]++;
-        console.log(newmatrix[i][j]);
+
+        //if ((x >= 0 && x < matrix.length) &&  (y >= 0 && y < matrix[i].length)) {
+          console.log('x>=',x,' x < ',matrix.length,'y >=',y,'matrix[i].length <',matrix[i].length);
+          if ((x >= 0 && x < matrix.length) &&  (y >= 0 && y < matrix[i].length)) {
+          newmatrix[x][y]++;
+        }
       }
-    }
     }
 
     }
+      console.log(newmatrix[i]);
   }
   return newmatrix;
 }
